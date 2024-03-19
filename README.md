@@ -1,2 +1,2 @@
 # ProyectoSENA
-Sistema de Gestion en Area de Fabricacion en FABRICA TEXTIL.
+Sistema de Gestion en Area de Fabricación Para una FABRICA TEXTIL.
