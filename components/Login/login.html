@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Inicio de Sesión</title>
+ <link rel="stylesheet" href="bootstrap.min.css">
+ <link rel="stylesheet" href="login.css">
+</head>
+<body>
+
+ <div class="container w-500 mt-5 ">
+  <div class="row align-items-stretch">
+   <div class="col bg  d-none d-lg-block col-md-5 col-lg-5 col-xl-6 rounded ">
+
+
+      <P class="fw-bold  my-5 text-center display-5 Bienvenido ">¡Bienvenido de Nuevo!</P>
+
+   </div>
+   <div class="col p-5">
+    <div class="tex-end">
+     <img src="/img/LogoMaicarSinFondo.png" width="100">
+    </div>
+
+    <h2 class="fw-bold pt-5 ">Iniciar Sesión</h2>
+    <p class="py-4">¡Bienvenido de Nuevo! Ingrese a su cuenta.</p>
+
+    <!-- Login -->
+
+    <form action="#">
+    <div class="form-floating">
+      <input type="email" class="form-control border border-dark" id="correo" placeholder="name@example.com">
+      <label for="floatingInput">Correo Electronico</label>
+    </div>
+    <div class="form-floating my-4">
+      <input type="password" class="form-control border border-dark" id="clave" placeholder="Password">
+      <label for="floatingPassword">Constraseña</label>
+    </div>
+
+     <div class="form-check text-start my-3">
+      <input class="form-check-input" type="checkbox" value="remember-me" id="flexCheckDefault">
+      <label class="form-check-label" for="flexCheckDefault">
+        Recordar Sesión
+      </label>
+     </div>
+
+     <div class="d-grid py-5 text-center">
+      <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
+      <div class="py-2">
+       <span><a href="#">¿Se te ha olvidado la contraseña?</a></span>
+      </div>
+     </div>
+     <div class="">
+      <span>¿Nuevo Usuario? <a href="#">Regístrarse</a></span>
+     </div>
+    </form>
+
+  </div>
+ </div>
+
+
+
+
+ <script src="../bootstrap/bootstrap.bundle.min.js"></script>
+</body>
+</html>
