@@ -1,3 +1,18 @@
 body {
-background-color: blue;
+ background-image: url('img/FondoAdministrar.png');
+ background-size: cover; /* Ajusta la imagen para que cubra toda la ventana del navegador */
+ background-repeat: no-repeat; /* Evita que la imagen se repita */
+}
+
+
+.image-container {
+ position: relative; /* Establece el contenedor como posición relativa */
+ display: inline-block; /* Permite que el contenedor se ajuste al contenido */
+}
+.image-container img {
+ position: absolute; /* Establece las imágenes como posición absoluta */
+ top: 0; /* Ajusta la posición superior */
+ left: 0; /* Ajusta la posición izquierda */
+ width: 100%; /* Hace que las imágenes ocupen todo el ancho del contenedor */
+ height: 100%; /* Hace que las imágenes ocupen todo el alto del contenedor */
 }
