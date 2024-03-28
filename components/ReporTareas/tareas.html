@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <link rel="icon" href="/img/LogoMaicarSinFondoBLANCO.ico" type="image/x-icon">
+ <link rel="stylesheet" href="bootstrap.min.css">
+ <link rel="stylesheet" href="tareas.css">
+
+ <title>Tareas Diarias</title>
+</head>
+<body>
+ <div class="container-fluid">
+  <div class="container-md">
+   <img src="/img/LogoMaicarSinFondo.png" alt="LogoMaicar" class="mt-4  "  width="130" height="120">
+</div>
+
+  <div class="container-xl">
+    <div class="d-flex justify-content-end" onclick="redirectTo('/index.html');" >
+      <a href="#">
+        <img src="/img/ATRAS.png" alt="">
+      </a>
+    </div>
+   <div class="text-center">
+    <h1>ASIGNAR TAREAS</h1>
+    <hr class="linea-tareas">
+    <form>
+      <div class="mb-3">
+        <label for="nombre" class="form-label">Asignado por:</label>
+        <input type="text" class="form-control" id="nombre" >
+      </div>
+      <div>
+        <label for="seleArea">Seleccione Are:</label>
+        <br>
+        <select name="seleArea" id="seleArea">
+          <option value="" disabled selected>Seleccione</option>
+          <option value="Calidad">Calidad</option>
+          <option value="Corte">Corte</option>
+          <option value="Costura">Costura</option>
+        </select>
+      </div>
+      <div>
+        <label for="descripcion">Descripción:</label>
+        <br>
+        <textarea name="descripcion" id="descripcion" cols="70" rows="9" placeholder="Ingrese una Descripcion"></textarea>
+      </div>
+      <div>
+        <label for="fecha">Fecha Inicial:</label>
+        <input type="date" id="fecha" name="fecha">
+      </div>
+      <div>
+        <label for="fecha_fin">Fecha de Finalización:</label>
+        <input type="date" id="fecha_fin" name="fecha_fin">
+      </div>
+      <div class="d-flex justify-content-end">
+        <button type="submit" class="btn btn-custom " name="guardar">Guardar</button>
+      </div>
+
+    </form>
+
+
+
+
+
+   </div>
+   
+  </div>
+
+ </div>
+ 
+
+ <script src="/redirectTo.js"></script>
+</body>
+</html>

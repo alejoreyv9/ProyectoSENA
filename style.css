@@ -1,18 +1,57 @@
+
 body {
  background-image: url('img/FondoAdministrar.png');
  background-size: cover; /* Ajusta la imagen para que cubra toda la ventana del navegador */
  background-repeat: no-repeat; /* Evita que la imagen se repita */
 }
 
+.iconos-margen {
+ margin-top: 125px;
+}
 
-.image-container {
- position: relative; /* Establece el contenedor como posición relativa */
- display: inline-block; /* Permite que el contenedor se ajuste al contenido */
+
+.imagen_container {
+ display: inline-block;
+ margin-right: 10px; /* Espacio entre imágenes */
+ vertical-align: middle; /* Alinear verticalmente */
+ width: 331px; /* Ancho del contenedor */
+ height: 417px; /* Altura del contenedor */
+ background-size: 331px 417px; /* Dimensiones del fondo */
+ background-position: center; /* Centra el fondo */
+ background-repeat: no-repeat; /* Evita que el fondo se repita */
+ border-radius: 15px; /* Bordes redondeados */
+ position: relative; /* Posición relativa para el posicionamiento absoluto del texto */
+ overflow: hidden; /* Ocultar cualquier desbordamiento */
+ transition: transform 0.2s ease; /* Transición suave al hacer hover */
 }
-.image-container img {
- position: absolute; /* Establece las imágenes como posición absoluta */
- top: 0; /* Ajusta la posición superior */
- left: 0; /* Ajusta la posición izquierda */
- width: 100%; /* Hace que las imágenes ocupen todo el ancho del contenedor */
- height: 100%; /* Hace que las imágenes ocupen todo el alto del contenedor */
+
+.imagen_container:hover {
+ transform: scale(1.05); /* Escalar ligeramente el contenedor al hacer hover */
 }
+
+.imagen_container a {
+ display: block; /* Hacer que el enlace ocupe todo el contenedor */
+ width: 100%; /* Ancho del enlace */
+ height: 100%; /* Altura del enlace */
+ text-decoration: none; /* Eliminar decoración de enlace */
+}
+
+.imagen_container h2 {
+ margin: 0; /* Eliminar margen */
+ color: black; /* Color de texto negro */
+ text-align: justify; /* Justificar el texto */
+ position: absolute; /* Posición absoluta para alinear el texto */
+ bottom: 0; /* Alinear el texto en la parte inferior */
+ left: 0; /* Alinear el texto a la izquierda */
+ width: 100%; /* Ancho del texto */
+ padding: 10px; /* Espaciado interno del texto */
+ transition: background-color 0.3s ease; /* Transición suave al hacer hover */
+}
+
+
+
+
+
+
+
+

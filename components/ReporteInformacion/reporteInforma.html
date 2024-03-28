@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <link rel="icon" href="/img/LogoMaicarSinFondoBLANCO.ico" type="image/x-icon">
+ <link rel="stylesheet" href="bootstrap.min.css">
+ <link rel="stylesheet" href="reporteInforma.css">
+ <title>Reportes Informació<nav></nav></title>
+</head>
+<body>
+<div class="container-fluid">
+ <div class="container-md">
+  <img src="/img/LogoMaicarSinFondo.png" alt="LogoMaicar" class="mt-4  "  width="130" height="120">
+</div>
+<div class="container-xl">
+ <div class="d-flex justify-content-end" onclick="redirectTo('/index.html');" >
+  <a href="#">
+    <img src="/img/ATRAS.png" alt="">
+  </a>
+</div>
+
+<div class="text-center">
+ <h1>Reportar Información</h1>
+ <hr class="linea-tareas">
+</div>
+<form >
+ <div class="mb-3">
+  <label for="nombre">Nombre Completo Operario:</label>
+  <input type="text" class="form-control" id="nombre">
+ </div>
+ <div>
+  <label for="cargo">Cargo:</label>
+  <select name="cargo" id="cargo">
+   <option value="" disabled selected>Seleccione</option>
+   <option value="Cortador">Cortador</option>
+   <option value="OperarioMaquinaPlana">Operario Maquina Plana</option>
+   <option value="OperarioMaquinaFilete">Operario Maquina Filete</option>
+   <option value="Filetiador">Filetiador</option>
+  </select>
+ </div>
+
+ <div>
+  <label for="fechaIni">Fecha: </label>
+  <input type="date" id="fechaIni" name="fechaIni">
+ </div>
+
+ <div>
+  <label for="reporte">Reporte:</label>
+  <textarea name="reporte" id="reporte" cols="70" rows="10" placeholder="Dejar un Reporte"></textarea>
+ </div>
+
+ <div class="d-flex justify-content-end">
+  <button type="submit" class="btn btn-custom " name="guardar">Guardar</button>
+</div>
+</form>
+
+
+
+
+
+</div>
+</div>
+
+<script src="/redirectTo.js"></script>
+</body>
+</html>
