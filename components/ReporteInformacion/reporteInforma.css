@@ -13,3 +13,9 @@ body {
  background-color: black; /* Cambia el color de la línea */
  border: none; /* Elimina cualquier borde */
 }
+
+@media (max-width: 767px) {
+ .container-xl {
+   padding: 10px;
+ }
+}

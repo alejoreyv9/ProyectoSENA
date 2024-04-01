@@ -1,6 +1,7 @@
 body {
  background-color: #647E68;
 }
+
 .container-xl {
  background-color: #D9D9D9;
 }
@@ -10,7 +11,18 @@ body {
 }
 
 .linea-tareas {
- height: 5px; /* Ajusta la altura de la línea */
- background-color: black; /* Cambia el color de la línea */
- border: none; /* Elimina cualquier borde */
+ height: 5px;
+ background-color: black;
+ border: none;
+}
+
+
+@media (max-width: 767px) {
+ .container-xl {
+   padding: 20px;
+ }
+ .position-absolute.top-0.end-0 {
+   margin-top: 10px;
+   margin-right: 10px;
+ }
 }

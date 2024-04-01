@@ -15,3 +15,10 @@ body {
  background-color: black; /* Cambia el color de la línea */
  border: none; /* Elimina cualquier borde */
 }
+
+/* Estilos adicionales para dispositivos móviles */
+@media (max-width: 767px) {
+ .form-control {
+     width: 100%; /* Ajusta el ancho del campo de texto al 100% en dispositivos móviles */
+ }
+}

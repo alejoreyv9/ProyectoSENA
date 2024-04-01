@@ -10,3 +10,10 @@ body {
  background-color: black; /* Cambia el color de la línea */
  border: none; /* Elimina cualquier borde */
 }
+
+/* Estilos para dispositivos móviles */
+@media (max-width: 767px) {
+  .text-center.position-relative {
+    margin-top: 20px; /* Ajustamos el margen superior del título */
+  }
+}

@@ -1,8 +1,8 @@
 
 body {
- background-image: url('img/FondoAdministrar.png');
- background-size: cover; /* Ajusta la imagen para que cubra toda la ventana del navegador */
- background-repeat: no-repeat; /* Evita que la imagen se repita */
+ background: #283c86;  /* fallback for old browsers */
+ background: -webkit-linear-gradient(to right, #647E68, #182747);  
+ background: linear-gradient(to right, #647E68, #182747); 
 }
 
 .iconos-margen {
@@ -12,34 +12,34 @@ body {
 
 .imagen_container {
  display: inline-block;
- margin-right: 10px; /* Espacio entre imágenes */
- vertical-align: middle; /* Alinear verticalmente */
- width: 331px; /* Ancho del contenedor */
- height: 417px; /* Altura del contenedor */
- background-size: 331px 417px; /* Dimensiones del fondo */
- background-position: center; /* Centra el fondo */
- background-repeat: no-repeat; /* Evita que el fondo se repita */
- border-radius: 15px; /* Bordes redondeados */
- position: relative; /* Posición relativa para el posicionamiento absoluto del texto */
- overflow: hidden; /* Ocultar cualquier desbordamiento */
- transition: transform 0.2s ease; /* Transición suave al hacer hover */
+ margin-right: 10px; 
+ vertical-align: middle; 
+ width: 331px;
+ height: 417px;
+ background-size: 331px 417px;
+ background-position: center;
+ background-repeat: no-repeat;
+ border-radius: 15px;
+ position: relative;
+ overflow: hidden;
+ transition: transform 0.2s ease;
 }
 
 .imagen_container:hover {
- transform: scale(1.05); /* Escalar ligeramente el contenedor al hacer hover */
+ transform: scale(1.05); 
 }
 
 .imagen_container a {
- display: block; /* Hacer que el enlace ocupe todo el contenedor */
- width: 100%; /* Ancho del enlace */
- height: 100%; /* Altura del enlace */
- text-decoration: none; /* Eliminar decoración de enlace */
+ display: block; 
+ width: 100%; 
+ height: 100%; 
+ text-decoration: none; 
 }
 
 .imagen_container h2 {
- margin: 0; /* Eliminar margen */
- color: black; /* Color de texto negro */
- text-align: justify; /* Justificar el texto */
+ margin: 0;
+ color: black;
+ text-align: justify;
  position: absolute; /* Posición absoluta para alinear el texto */
  bottom: 0; /* Alinear el texto en la parte inferior */
  left: 0; /* Alinear el texto a la izquierda */
@@ -48,6 +48,9 @@ body {
  transition: background-color 0.3s ease; /* Transición suave al hacer hover */
 }
 
+.container-fluid .col .titlePrinci  {
+color: #ffffff;
+}
 
 
 

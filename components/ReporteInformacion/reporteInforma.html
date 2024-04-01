@@ -10,7 +10,7 @@
     />
     <link rel="stylesheet" href="bootstrap.min.css" />
     <link rel="stylesheet" href="reporteInforma.css" />
-    <title>Reportes Informació<nav></nav></title>
+    <title>Reportes Información</title>
   </head>
 
   <body>
@@ -25,7 +25,8 @@
         />
       </div>
       <br />
-      <div class="container-xl rounded-3 align-items-stretch col p-4">
+
+      <div class="container-xl rounded-3 p-4">
         <div
           class="d-flex justify-content-end position-absolute top-0 end-0 me-1"
           onclick="redirectTo('/index.html');"
@@ -35,10 +36,11 @@
           </a>
         </div>
 
-        <div class="text-center">
+        <div class="text-center mb-4">
           <h1>Reportar Información</h1>
           <hr class="linea-tareas" />
         </div>
+
         <form>
           <div class="mb-3">
             <label for="nombre" class="form-label h5"
@@ -46,16 +48,16 @@
             >
             <input
               type="text"
-              class="form-control input-sm border border-dark rounded-4"
+              class="form-control rounded-4 border border-dark"
               id="nombre"
             />
           </div>
-          <div class="h5">
-            <label for="cargo">Cargo:</label>
+          <div class="mb-3">
+            <label for="cargo" class="form-label h5">Cargo:</label>
             <select
               name="cargo"
               id="cargo"
-              class="form-control input-lg text-center form-control border border-dark rounded-4"
+              class="form-control border border-dark rounded-4"
             >
               <option value="" disabled selected>Seleccione</option>
               <option value="Cortador">Cortador</option>
@@ -69,19 +71,25 @@
             </select>
           </div>
 
-          <div class="h5">
-            <label for="fechaIni">Fecha: </label>
-            <input type="date" id="fechaIni" name="fechaIni" />
+          <div class="mb-3">
+            <label for="fechaIni" class="form-label h5">Fecha: </label>
+            <input
+              type="date"
+              id="fechaIni"
+              name="fechaIni"
+              class="form-control border border-dark rounded-4"
+            />
           </div>
 
-          <div class="mt-4 h5">
-            <label for="reporte">Reporte:</label>
+          <div class="mb-3">
+            <label for="reporte" class="form-label h5">Reporte:</label>
             <textarea
               name="reporte"
               id="reporte"
               cols="70"
               rows="10"
               placeholder="Dejar un Reporte"
+              class="form-control border border-dark rounded-4"
             ></textarea>
           </div>
 
@@ -92,9 +100,9 @@
           </div>
         </form>
       </div>
-      <hr />
     </div>
 
+    <hr />
     <script src="/redirectTo.js"></script>
   </body>
 </html>
