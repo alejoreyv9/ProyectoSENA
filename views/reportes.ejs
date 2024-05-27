@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="resources/img/LogoMaicarSinFondoBLANCO.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="resources/css/ReporteInformacion/bootstrap.min.css" />
+  <link rel="stylesheet" href="resources/css/ReporteInformacion/reporteInforma.css" />
+  <title>Reportes Información</title>
+</head>
+
+<body>
+  <div class="container-fluid">
+    <div class="container-md">
+      <img src="resources/img/LogoMaicarSinFondo.png" alt="LogoMaicar" class="mt-4" width="130" height="120" />
+    </div>
+    <br />
+
+    <div class="container-xl rounded-3 p-4">
+      <div class="d-flex justify-content-end position-absolute top-0 end-0 me-1" onclick="redirectTo('/index');">
+        <a href="#">
+          <img src="resources/img/ATRAS.png" alt="" />
+        </a>
+      </div>
+
+      <div class="text-center mb-4">
+        <h1>Reportar Información</h1>
+        <hr class="linea-tareas" />
+      </div>
+
+      <form action="/insertarReporteInformacion" method="post">
+        <div class="mb-3">
+          <label for="nombre" class="form-label h5">Nombre Completo Operario:</label>
+          <input type="text" class="form-control rounded-4 border border-dark" id="nombre" name="nombreOperario" />
+        </div>
+        <div class="mb-3">
+          <label for="cargo" class="form-label h5">Cargo:</label>
+          <select name="cargo" id="cargo" class="form-control border border-dark rounded-4" name="cargo">
+            <option value="" disabled selected>Seleccione</option>
+            <option value="Cortador">Cortador</option>
+            <option value="OperarioMaquinaPlana">Operario Maquina Plana</option>
+            <option value="OperarioMaquinaFilete">Operario Maquina Filete</option>
+            <option value="Filetiador">Filetiador</option>
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label for="fechaIni" class="form-label h5">Fecha: </label>
+          <input type="date" id="fechaIni" name="fecha" class="form-control border border-dark rounded-4" />
+        </div>
+
+        <div class="mb-3">
+          <label for="reporte" class="form-label h5">Reporte:</label>
+          <textarea name="reporte" id="reporte" cols="70" rows="10" placeholder="Dejar un Reporte"
+            class="form-control border border-dark rounded-4" name="reporteDescripcion"></textarea>
+        </div>
+
+        <div class="d-flex justify-content-end">
+          <button type="submit" class="btn btn-danger btn-lg" name="guardar">
+            Guardar
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <hr />
+  <script src="resources/js/redirectTo.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <% if(typeof alert !="undefined" ) { %>
+    <script>
+      if (typeof alert !== "undefined") {
+        Swal.fire({
+          title: '<%= alertTitle %>',
+          text: '<%= alertMessage %>',
+          icon: '<%= alertIcon %>',
+          showConfirmButton: '<%= showConfirmButton %>',
+          timer: '<%= timer %>'
+        }).then(() => {
+          window.location = '/<%= ruta %>';
+        });
+      }
+    </script>
+
+    <% } %>
+
+</body>
+
+</html>

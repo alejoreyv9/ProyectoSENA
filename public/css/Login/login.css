@@ -1,0 +1,18 @@
+body {
+ background: #EEEEEE;
+}
+
+
+.bg {
+ background-image: url(../img/FondoTelasLogin.png);
+ background-position: center center;
+ background-color: #000000;
+}
+
+.Bienvenido {
+ color: #EEEEEE;
+background-color: #647e6859;
+}
+
+
+

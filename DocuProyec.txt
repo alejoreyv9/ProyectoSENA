@@ -1,0 +1,97 @@
+Estoy trabajando en un proyecto el cual es para una empresa Fabrica Textil. 
+
+Ella cuenta con 4 areas y digamos de esas 4 tome 1, la cual es Fabricacion.
+En esa fabricacion se realizan varias cosas, como inflables, bolsos, botiquines, chaquetas y de mas.
+
+pero yo realice la sacada de ciertos requerimientos funcionales pero de esos tome 4 para la realizacion de este proyecto.
+
+Quiero realizar algo sencillo pero consizo bien bacano y que cumpla con lo pedido y sacado.
+
+RF-BM-005 - Gestión detallada de la información de la bodega si hay el tipo de 
+material necesario, un tipo de inventario para validar la materia prima. 
+RF-RPT-006 - Poder que el sistema sea posible asignar las tareas que toca que realice el 
+operario de cada orden solicitada, y contando que deje un reporte de que el producto ya 
+está terminado. 
+RF-RCP-004 - Gestión de información de qué procesos debe que realizar sobre la 
+fabricación, reportes sobre la calidad de los productos. 
+RF-AAD-002 - Gestión de antecedentes, el sistema debe de almacenar y administrar los 
+datos de reportes del área de fabricación. 
+
+Tambien te cuento que tengo pensado montarlo en NODE.js o SprintBoot entonces no se todavia pero en alguna de esas.
+
+pero necesito llenar este documento para presentar el proyecto ya te comparto la informacion haber que me dices que pueda colocar.
+
+
+-Gestión de inventario:
+Bodega
+Materia prima
+Inventario
+Material necesario
+-Asignación de tareas y reportes:
+Operarios
+Tareas
+Reportes de finalización
+Órdenes solicitadas
+-Procesos de fabricación y calidad:
+Procesos
+Calidad de productos
+Información detallada
+Reportes
+-Antecedentes y almacenamiento de datos:
+Antecedentes
+Administración de datos
+Área de fabricación
+Reportes
+
+
+============================================================================================
+
+Te comentare las entidades y los atributos de los 4 y te comento que de verdad si tocaria crear alguna otra entiedad y si agregar mas entidades a algunas o mas a y cual serian las relaciones entre ellos y si es muchos a muchos o unos a muchos, no se si el login y Registro de usuario tambien suma o va por dia aparte. 
+
+-ReporteCalidad
+idCalidad
+Hecho por:
+Comentario
+calificacion
+
+-TareaAsignar
+IdTarea
+Asignada por
+Seleccione Area
+Descripcion
+Fecha_inicial
+Fecha_final
+
+-usuario
+idUsuario
+Nombre_Apellido
+Cedula
+Roles
+Departamento
+contraseña
+correo
+
+-Bodega
+idCodigo
+Accion
+Tipo
+Nombre
+Fecha
+Cantidad
+Pedido
+
+-ReporteFabricacion
+IdReporte
+NombreOperario
+Cargo
+fecha
+ReporteDescripcion
+
+-Productos
+idProductos
+nombre_producto
+cantidadPorPoducto
+precioUnidad
+unidadExistencia
+UnidadesEnPedido
+nivelNuevoUnidad

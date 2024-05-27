@@ -1,0 +1,21 @@
+{
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^16.4.5",
+    "ejs": "^3.1.10",
+    "express": "^4.19.2",
+    "express-session": "^1.18.0",
+    "mysql": "^2.18.1",
+    "mysql2": "^3.9.8",
+    "nodemon": "^3.1.1"
+  },
+  "name": "proyectosena",
+  "description": "Sistema de Gestion en Area de Fabricación Para una FABRICA TEXTIL.",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Alejandro Rey Vera",
+  "license": "ISC"
+}
