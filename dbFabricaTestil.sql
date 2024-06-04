@@ -4,9 +4,7 @@ USE proyecFabricacion;
 
 SELECT * FROM proyecfabricacion.usuarios;
 
-
-
-
+-- Metodo de eliminar una tabla
 DROP TABLE reporteFabricacion;
 
 CREATE TABLE usuarios (
@@ -40,6 +38,15 @@ CREATE TABLE bodega (
     pedidos VARCHAR(255)
     );
 
+CREATE TABLE producto (
+	idProducto INT AUTO_INCREMENT PRIMARY KEY,
+    nombreProducto VARCHAR(255),
+    cantidadPorProducto INT,
+    precioUnidad DECIMAL,
+    unidadExistencia INT,
+    unidadPedido INT
+);
+
 CREATE TABLE reporteCalidad (
 	idCalidad INT AUTO_INCREMENT PRIMARY KEY,
     hecho_por VARCHAR(255),
@@ -57,10 +64,20 @@ CREATE TABLE reporteFabricacion (
     reporteDescripcion TEXT
 );
 
-CREATE TABLE operario (
-	idOperario INT AUTO_INCREMENT PRIMARY KEY,
-    nombre_Apellido VARCHAR(255),
-    cargo VARCHAR(255),
-    departamentoTrabajo VARCHAR(255)
-);
+
+
+
+
+
+
+
+
+
+
+-- CREATE TABLE operario (
+-- 	idOperario INT AUTO_INCREMENT PRIMARY KEY,
+--     nombre_Apellido VARCHAR(255),
+--     cargo VARCHAR(255),
+--     departamentoTrabajo VARCHAR(255)
+-- );
 
