@@ -4,7 +4,7 @@ body {
 
 
 .bg {
- background-image: url(resources./img/FondoTelasLogin.png);
+ background-image: url(../../img/FondoTelasLogin.png);
  background-position: center center;
  background-color: #000000;
 }
