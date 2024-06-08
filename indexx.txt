@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="components/Administrar/bootstrap.min.css" />
   <link rel="stylesheet" href="style.css" />
 </head>
-
+ <h1>Prueba Git</h1>
 <body>
   <div class="container-fluid">
     <div class="container-xxl">
