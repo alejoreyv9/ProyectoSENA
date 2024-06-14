@@ -165,6 +165,10 @@ app.get("/reportes", (req, res) => {
   res.render("reportes");
 });
 
+app.get("/dashboard", (req, res) => {
+  res.render("dashboard");
+});
+
 /// Manejador de solicitud para insertar tarea asignada en la base de datos
 app.post("/insertarTarea", (req, res) => {
   const {
