@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <link rel="icon" href="resources/img/LogoMaicarSinFondoBLANCO.ico" type="image/x-icon" />
+ <link rel="stylesheet" href="resources/css/dashboard/bootstrap.min.css">
+ <link rel="stylesheet" href="resources/css/Dashboard/dashboard.css">
+ <title>Editar Tarea</title>
+</head>
+
+<body>
+ <div class="container">
+  <h1 class="mt-4 mb-4">Editar Tarea</h1>
+  <form action="/tareas/edit/<%= tarea.idTarea %>" method="POST">
+   <div class="mb-3">
+    <label for="asignadaPor" class="form-label">Asignada Por</label>
+    <input type="text" class="form-control" id="asignadaPor" name="asignada_por" value="<%= tarea.asignada_por %>"
+     required>
+   </div>
+   <div class="mb-3">
+    <label for="seleccionArea" class="form-label">Selección de Área</label>
+    <input type="text" class="form-control" id="seleccionArea" name="selecciona_area"
+     value="<%= tarea.seleciona_area %>" required>
+   </div>
+   <div class="mb-3">
+    <label for="descripcion" class="form-label">Descripción</label>
+    <textarea class="form-control" id="descripcion" name="descripcion" rows="3"
+     required><%= tarea.descripcion %></textarea>
+   </div>
+   <div class="mb-3">
+    <label for="fechaInicial" class="form-label">Fecha Inicial</label>
+    <input type="date" class="form-control" id="fechaInicial" name="fecha_inicial" value="<%= tarea.fecha_inicial %>"
+     required>
+   </div>
+   <div class="mb-3">
+    <label for="fechaFinal" class="form-label">Fecha Final</label>
+    <input type="date" class="form-control" id="fechaFinal" name="fecha_final" value="<%= tarea.fecha_final %>"
+     required>
+   </div>
+   <!-- Agrega más campos según sea necesario -->
+
+   <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+   <a href="/dashboard" class="btn btn-secondary">Cancelar</a>
+  </form>
+ </div>
+
+ <script src="resources/js/redirectTo.js"></script>
+</body>
+
+</html>
