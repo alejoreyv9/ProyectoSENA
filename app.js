@@ -4,18 +4,13 @@ const bcryptjs = require("bcryptjs");
 const session = require("express-session");
 const connection = require("./database/db");
 
+// LLamado de cada controllador
 require("dotenv").config();
-
 // Configuración de Express y middleware
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use("/resources", express.static("public"));
 app.set("view engine", "ejs");
-
-const path = require("path");
-
-app.set("views", path.join(__dirname, "views"));
-
 // Configuración de sesiones
 app.use(
   session({
@@ -24,25 +19,21 @@ app.use(
     saveUninitialized: true,
   })
 );
-
 // Redireccionar la ruta raíz a la página de inicio de sesión
 app.get("/", (req, res) => {
   res.redirect("/login");
 });
-
 // Ruta para la página de inicio de sesión
 app.get("/login", (req, res) => {
   res.render("login");
 });
-
 // Ruta para la página de registro
 app.get("/registro", (req, res) => {
   res.render("registro");
 });
-
 // ===========CONEXIONES DE LOS ROUTERS ===============
-app.use("/tareas", require("./routers/tareas"));
-app.use("/dashboard", require("./routers/dashboard"));
+app.use("/tareas", require("./routers/tareasRouter"));
+app.use("/dashboard", require("./routers/dashboardRouter"));
 
 // Manejador de solicitud para el formulario de registro
 app.post("/registro", async (req, res) => {
@@ -175,6 +166,10 @@ app.get("/reportes", (req, res) => {
 
 app.get("/dashboard", (req, res) => {
   res.render("dashboard");
+});
+
+app.get("/editTareas", (req, res) => {
+  res.render("editTareas");
 });
 
 // // Manejador de solicitud para insertar en la base de datos la información de la bodega
