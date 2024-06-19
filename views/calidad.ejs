@@ -43,25 +43,24 @@
               class="rounded-3 border border-dark"></textarea>
           </div>
       </div>
-      <div class="mt-5">
-        <div class="d-block mb-2">
-          <button type="submit" class="btn btn-danger" name="problema">PROBLEMA</button>
-          <!-- Agregado el atributo name -->
-        </div>
-        <div class="d-block mb-2">
-          <button type="submit" class="btn btn-secondary" name="medio">MEDIO</button> <!-- Agregado el atributo name -->
-        </div>
-        <div class="d-block">
-          <button type="submit" class="btn btn-success" name="excelente">EXCELENTE</button>
-          <!-- Agregado el atributo name -->
-        </div>
+      <div class="h5">
+        <label for="nivelCalidad">Nivel de calidad:</label>
+        <br />
+        <select name="nivelCalidad" id="nivelCalid"
+          class="form-control input-lg text-center form-control border border-dark rounded-4">
+          <option value="" disabled selected>Seleccione</option>
+          <option value="Calidad">Problema</option>
+          <option value="Corte">Medio</option>
+          <option value="Costura">Excelente</option>
+        </select>
       </div>
-      <div class="d-flex justify-content-end mt-4">
-        <button type="submit" class="btn btn-danger btn-lg" name="guardar">Guardar</button>
-      </div>
-      </form>
     </div>
-    <hr>
+    <div class="d-flex justify-content-end mt-4">
+      <button type="submit" class="btn btn-danger btn-lg" name="guardar">Guardar</button>
+    </div>
+    </form>
+  </div>
+  <hr>
   </div>
 
   <script src="resources/js/redirectTo.js"></script>

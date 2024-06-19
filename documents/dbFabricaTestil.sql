@@ -47,13 +47,14 @@ CREATE TABLE producto (
     unidadPedido INT
 );
 
+
+DROP TABLE reporteCalidad;
+
 CREATE TABLE reporteCalidad (
 	idCalidad INT AUTO_INCREMENT PRIMARY KEY,
     hecho_por VARCHAR(255),
     comentario TEXT,
-    problema VARCHAR(255),
-    medio VARCHAR(255),
-    excelente VARCHAR(255)
+    nivelCalidad VARCHAR(225)
 );
 
 CREATE TABLE reporteFabricacion (

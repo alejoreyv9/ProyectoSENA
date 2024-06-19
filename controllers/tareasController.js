@@ -95,7 +95,7 @@ exports.updateTarea = (req, res) => {
         res.status(500).send("Error interno del servidor: " + error);
         return;
       } else {
-        res.redirect("/tareas");
+        res.redirect("/dashboard");
       }
     }
   );

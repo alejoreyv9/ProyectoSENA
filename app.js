@@ -34,6 +34,7 @@ app.get("/registro", (req, res) => {
 // ===========CONEXIONES DE LOS ROUTERS ===============
 app.use("/tareas", require("./routers/tareasRouter"));
 app.use("/dashboard", require("./routers/dashboardRouter"));
+app.use("/calidad", require("./routers/calidadRouter"));
 
 // Manejador de solicitud para el formulario de registro
 app.post("/registro", async (req, res) => {
