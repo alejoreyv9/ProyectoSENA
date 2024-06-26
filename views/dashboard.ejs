@@ -45,32 +45,32 @@
             </tr>
           </thead>
           <tbody>
-            <% results.forEach((tareaasignar)=> { %>
+            <% tareas.forEach((tarea)=> { %>
               <tr>
                 <td>
-                  <%= tareaasignar.idTarea %>
+                  <%= tarea.idTarea %>
                 </td>
                 <td>
-                  <%= tareaasignar.asignada_por %>
+                  <%= tarea.asignada_por %>
                 </td>
                 <td>
-                  <%= tareaasignar.seleciona_area %>
+                  <%= tarea.seleccion_area %>
                 </td>
                 <td>
-                  <%= tareaasignar.descripcion %>
+                  <%= tarea.descripcion %>
                 </td>
                 <td>
-                  <%= tareaasignar.fecha_Inicial %>
+                  <%= tarea.fecha_Inicial %>
                 </td>
                 <td>
-                  <%= tareaasignar.fecha_Final %>
+                  <%= tarea.fecha_Final %>
                 </td>
                 <td>
-                  <a href="/tareas/edit/<%= tareaasignar.idTarea %>" class="btn btn-outline-info">Editar</a>
-                  <a href="/tareas/delete/<%= tareaasignar.idTarea %>" class="btn btn-outline-danger">Borrar</a>
+                  <a href="/tareas/edit/<%= tarea.idTarea %>" class="btn btn-outline-info">Editar</a>
+                  <a href="/tareas/delete/<%= tarea.idTarea %>" class="btn btn-outline-danger">Borrar</a>
                 </td>
               </tr>
-              <%}) %>
+              <% }) %>
           </tbody>
         </table>
       </div>
@@ -87,55 +87,35 @@
               <th scope="col">Hecho por:</th>
               <th scope="col">Comentario</th>
               <th scope="col">Nivel de Calidad</th>
+              <th scope="col">Acciones</th>
             </tr>
           </thead>
           <tbody>
-            <% results.forEach((reporteCalidad)=> { %>
+            <% calidad.forEach((reporte)=> { %>
               <tr>
                 <td>
-                  <%= reporteCalidad.idCalidad %>
+                  <%= reporte.idCalidad %>
                 </td>
                 <td>
-                  <%= reporteCalidad.hecho_por %>
+                  <%= reporte.hecho_por %>
                 </td>
                 <td>
-                  <%= reporteCalidad.comentario %>
+                  <%= reporte.comentario %>
                 </td>
                 <td>
-                  <%= reporteCalidad.nivelCalidad %>
+                  <%= reporte.nivelCalidad %>
                 </td>
                 <td>
-                  <a href="/calidad/edit/<%= reporteCalidad.idCalidad %>" class="btn btn-outline-info">Editar</a>
-                  <a href="/calidad/delete/<%= reporteCalidad.idCalidad %>" class="btn btn-outline-danger">Borrar</a>
+                  <a href="/calidad/edit/<%= reporte.idCalidad %>" class="btn btn-outline-info">Editar</a>
+                  <a href="/calidad/delete/<%= reporte.idCalidad %>" class="btn btn-outline-danger">Borrar</a>
                 </td>
               </tr>
-              <%}) %>
+              <% }) %>
           </tbody>
         </table>
       </div>
 
-
     </div>
-
-    <br />
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   </div>
 
   <script src="resources/js/redirectTo.js"></script>

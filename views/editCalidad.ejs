@@ -3,43 +3,46 @@
 <html lang="es">
 
 <head>
- <meta charset="UTF-8">
- <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <link rel="icon" href="resources/img/LogoMaicarSinFondoBLANCO.ico" type="image/x-icon" />
- <link rel="stylesheet" href="/resources/css/dashboard/bootstrap.min.css">
- <link rel="stylesheet" href="/resources/css/Dashboard/dashboard.css">
- <title>Editar Calidad</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="resources/img/LogoMaicarSinFondoBLANCO.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="/resources/css/dashboard/bootstrap.min.css">
+  <link rel="stylesheet" href="/resources/css/Dashboard/dashboard.css">
+  <title>Editar Calidad</title>
 </head>
 
 <body>
- <% if (calidad) { %>
-  <div class="container">
-   <h1 class="mt-4 mb-4">Editar Calidad</h1>
-   <form action="/calidad/edit/<%= calidad.idCalidad %>" method="POST">
-    <div class="mb-3">
-     <label for="hecho_por" class="form-label">Hecho por:</label>
-     <input type="text" class="form-control" id="hecho_por" name="hecho_por" value="<%= calidad.hecho_por %>" required>
+  <% if (calidad) { %>
+    <div class="container">
+      <h1 class="mt-4 mb-4">Editar Calidad</h1>
+      <form action="/calidad/edit/<%= calidad.idCalidad %>" method="POST">
+        <div class="mb-3">
+          <label for="hecho_por" class="form-label">Hecho por:</label>
+          <input type="text" class="form-control" id="hecho_por" name="hecho_por" value="<%= calidad.hecho_por %>"
+            required>
+        </div>
+        <div class="mb-3">
+          <label for="comentario" class="form-label">Comentario:</label>
+          <textarea class="form-control" id="comentario" name="comentario" rows="3"
+            required><%= calidad.comentario %></textarea>
+        </div>
+        <div class="mb-3">
+          <label for="nivelCalid" class="form-label">Nivel de Calidad:</label>
+          <select name="nivelCalidad" id="nivelCalid" class="form-control">
+            <option value="Problema" <%=calidad.nivelCalidad==='Problema' ? 'selected' : '' %>>Problema</option>
+            <option value="Medio" <%=calidad.nivelCalidad==='Medio' ? 'selected' : '' %>>Medio</option>
+            <option value="Excelente" <%=calidad.nivelCalidad==='Excelente' ? 'selected' : '' %>>Excelente</option>
+          </select>
+        </div>
+        <input type="hidden" name="id" value="<%= calidad.idCalidad %>">
+        <!-- Corregido a "id" en lugar de "idCalidad" -->
+        <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+        <a href="/dashboard" class="btn btn-secondary">Cancelar</a>
+      </form>
     </div>
-    <div class="mb-3">
-     <label for="comentario" class="form-label">Comentario</label>
-     <textarea class="form-control" id="comentario" name="comentario" rows="3"
-      required><%= calidad.comentario %></textarea>
-    </div>
-    <div class="mb-3">
-     <label for="seleArea" class="form-label">Seleccione Área</label>
-     <select name="nivelCalidad" id="nivelCalid" class="form-control">
-      <option value="Problema" <%=calidad.nivelCalidad==='Problema' ? 'selected' : '' %>>Problema</option>
-      <option value="Medio" <%=calidad.nivelCalidad==='Medio' ? 'selected' : '' %>>Medio</option>
-      <option value="Excelente" <%=calidad.nivelCalidad==='Excelente' ? 'selected' : '' %>>Excelente</option>
-     </select>
-    </div>
-    <button type="submit" class="btn btn-primary">Guardar Cambios</button>
-    <a href="/calidad" class="btn btn-secondary">Cancelar</a>
-   </form>
-  </div>
-  <% } else { %>
-   <p>Reporte de calidad no encontrado.</p>
-   <% } %>
+    <% } else { %>
+      <p>Reporte de calidad no encontrado.</p>
+      <% } %>
 </body>
 
 </html>
