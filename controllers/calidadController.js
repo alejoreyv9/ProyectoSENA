@@ -1,6 +1,6 @@
 const connection = require("../database/db");
 
-// Obtener todas las tareas
+// Obtener todas las tareas de calidad
 exports.getAllCalidad = (req, res) => {
   connection.query("SELECT * FROM reporteCalidad", (error, results) => {
     if (error) {
