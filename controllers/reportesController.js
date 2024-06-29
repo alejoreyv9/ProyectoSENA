@@ -9,7 +9,7 @@ exports.getAllReporte = (req, res) => {
         .status(500)
         .send("Error interno del servidor de Reporte de Informacion:");
     } else {
-      res.render("reporte", { results });
+      res.render("reportes", { results });
     }
   });
 };
@@ -31,7 +31,7 @@ exports.insertReporte = (req, res) => {
           );
         return;
       } else {
-        res.redirect("/reporte");
+        res.redirect("/reportes");
       }
     }
   );
@@ -50,18 +50,19 @@ exports.editReporte = (req, res) => {
           .status(500)
           .send("Error interno del servidor de Reporte de Informacion:");
       } else {
-        res.render("editReporte", { reporte: results[0] });
+        res.render("editReportes", { reporte: results[0] });
       }
     }
   );
 };
 
 // Actualizar el reporte
+// Actualizar el reporte
 exports.updateReporte = (req, res) => {
-  const { nombreOperario, cargo, fecha, reporteDescripcion } = req.body;
+  const { id, nombreOperario, cargo, fecha, reporteDescripcion } = req.body; // Asegúrate de incluir 'id' en los datos recibidos desde el formulario
   connection.query(
-    "UPDATE reporteFabricacion SET nombreOperario = ?, cargo = ?, fecha = ?, reporteDescripcion = ?",
-    [nombreOperario, cargo, fecha, reporteDescripcion, id],
+    "UPDATE reporteFabricacion SET nombreOperario = ?, cargo = ?, fecha = ?, reporteDescripcion = ? WHERE idReporte = ?",
+    [nombreOperario, cargo, fecha, reporteDescripcion, id], // Añade 'id' al final para la cláusula WHERE
     (error, results) => {
       if (error) {
         console.error("Error al actualizar el reporte de Informacion:", error);
@@ -71,7 +72,7 @@ exports.updateReporte = (req, res) => {
             "Error interno del servidor de Reporte de Informacion: " + error
           );
       } else {
-        console.log("Reporte actualizada correctamente.");
+        console.log("Reporte actualizado correctamente.");
         res.redirect("/dashboard");
       }
     }

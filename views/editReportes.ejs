@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <link rel="icon" href="resources/img/LogoMaicarSinFondoBLANCO.ico" type="image/x-icon" />
+ <link rel="stylesheet" href="/resources/css/dashboard/bootstrap.min.css">
+ <link rel="stylesheet" href="/resources/css/Dashboard/dashboard.css">
+ <title>Editar Reporte</title>
+</head>
+
+<body>
+ <% if (reporte) { %>
+  <div class="container">
+   <h1 class="mt-4 mb-4">Editar Reporte</h1>
+   <form action="/reportes/update/<%= reporte.idReporte %>" method="POST">
+    <div class="mb-3">
+     <label for="nombreOperario" class="form-label">Nombre Operario:</label>
+     <input type="text" class="form-control" id="nombreOperario" name="nombreOperario"
+      value="<%= reporte.nombreOperario %>" required>
+    </div>
+    <div class="mb-3">
+     <label for="cargo" class="form-label h5">Cargo:</label>
+     <select name="cargo" id="cargo" class="form-control border border-dark rounded-4" required>
+      <option value="" disabled selected>Seleccione</option>
+      <option value="Cortador" <%=reporte.cargo==='Cortador' ? 'selected' : '' %>>Cortador</option>
+      <option value="OperarioMaquinaPlana" <%=reporte.cargo==='OperarioMaquinaPlana' ? 'selected' : '' %>>Operario
+       Maquina Plana
+      </option>
+      <option value="OperarioMaquinaFilete" <%=reporte.cargo==='OperarioMaquinaFilete' ? 'selected' : '' %>>Operario
+       Maquina Filete
+      </option>
+      <option value="Filetiador" <%=reporte.cargo==='Filetiador' ? 'selected' : '' %>>Filetiador</option>
+     </select>
+    </div>
+    <div class="mb-3">
+     <label for="fecha" class="form-label">Fecha:</label>
+     <input type="date" class="form-control" id="fecha" name="fecha" value="<%= reporte.fecha %>" required>
+    </div>
+    <div class="mb-3">
+     <label for="reporteDescripcion" class="form-label">Descripción del Reporte:</label>
+     <textarea class="form-control" id="reporteDescripcion" name="reporteDescripcion" rows="5"
+      required><%= reporte.reporteDescripcion %></textarea>
+    </div>
+    <input type="hidden" name="id" value="<%= reporte.idReporte %>">
+    <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+    <a href="/reportes" class="btn btn-secondary">Cancelar</a>
+   </form>
+  </div>
+  <% } else { %>
+   <p>Reporte no encontrado.</p>
+   <% } %>
+</body>
+
+</html>

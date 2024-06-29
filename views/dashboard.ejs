@@ -119,6 +119,52 @@
         </table>
       </div>
 
+
+      <div class="text-center position-relative">
+        <h1 class="mb-0 mt-4">Información de Reporte de Informacion</h1>
+      </div>
+
+      <!-- TABLA DE Reporte de informacion -->
+      <hr class="linea-tareas" />
+      <div class="table-responsive">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col">ID Reporte</th>
+              <th scope="col">Nombre Operario:</th>
+              <th scope="col">Cargo</th>
+              <th scope="col">Fecha</th>
+              <th scope="col">Descripcion de Reporte</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% reportes.forEach((reporte)=> { %>
+              <tr>
+                <td>
+                  <%= reporte.idReporte %>
+                </td>
+                <td>
+                  <%= reporte.nombreOperario %>
+                </td>
+                <td>
+                  <%= reporte.cargo %>
+                </td>
+                <td>
+                  <%= reporte.fecha %>
+                </td>
+                <td>
+                  <%= reporte.reporteDescripcion %>
+                </td>
+                <td>
+                  <a href="/reportes/edit/<%= reporte.idReporte %>" class="btn btn-outline-info">Editar</a>
+                  <a href="/reportes/delete/<%= reporte.idReporte %>" class="btn btn-outline-danger">Borrar</a>
+                </td>
+              </tr>
+              <% }) %>
+          </tbody>
+        </table>
+      </div>
+
     </div>
   </div>
 

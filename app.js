@@ -40,7 +40,7 @@ app.get("/registro", (req, res) => {
 app.use("/tareas", require("./routers/tareasRouter"));
 app.use("/dashboard", require("./routers/dashboardRouter"));
 app.use("/calidad", require("./routers/calidadRouter"));
-app.use("/reporte", require("./routers/reporteRouter"));
+app.use("/reportes", require("./routers/reporteRouter"));
 
 // Manejador de solicitud para el formulario de registro
 app.post("/registro", async (req, res) => {
@@ -182,6 +182,9 @@ app.get("/editTareas", (req, res) => {
 
 app.get("/editCalidad", (req, res) => {
   res.render("editCalidad");
+});
+app.get("/editReportes", (req, res) => {
+  res.render("editReportes");
 });
 
 // Iniciar el servidor
