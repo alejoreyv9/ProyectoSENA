@@ -47,6 +47,15 @@ CREATE TABLE producto (
     unidadPedido INT
 );
 
+CREATE TABLE bodega_producto (
+    idProductoBodega INT AUTO_INCREMENT PRIMARY KEY,
+    idBodega INT,
+    idProducto INT,
+    cantidad INT,
+    FOREIGN KEY (idBodega) REFERENCES bodega(idBodega),
+    FOREIGN KEY (idProducto) REFERENCES producto(idProducto)
+);
+
 
 DROP TABLE reporteCalidad;
 

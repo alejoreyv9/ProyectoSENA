@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+ <meta charset="UTF-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+ <link rel="stylesheet" href="/resources/css/Bodega/bootstrap.min.css" />
+ <link rel="stylesheet" href="/resources/css/Bodega/bodega.css" />
+ <title>Editar Bodega</title>
+</head>
+
+<body>
+ <div class="container">
+  <h1 class="text-white text-center p-5 mb-6">Editar Bodega</h1>
+  <form action="/bodegas/actualizar/<%= bodega.idBodega %>" method="POST">
+   <input type="text" name="nombre" value="<%= bodega.nombre %>" required>
+   <input type="number" name="codigo" value="<%= bodega.codigo %>" required>
+   <input type="text" name="accion" value="<%= bodega.accion %>" required>
+   <input type="text" name="tipo" value="<%= bodega.tipo %>" required>
+   <input type="date" name="fecha" value="<%= bodega.fecha %>" required>
+   <input type="number" name="cantidad" value="<%= bodega.cantidad %>" required>
+   <input type="text" name="pedidos" value="<%= bodega.pedidos %>" required>
+   <button type="submit" class="btn btn-primary mt-2">Actualizar Bodega</button>
+  </form>
+ </div>
+</body>
+
+</html>

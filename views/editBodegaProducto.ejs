@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/resources/css/Bodega/bootstrap.min.css" />
+  <link rel="stylesheet" href="/resources/css/Bodega/bodega.css" />
+  <title>Editar Relación Bodega-Producto</title>
+</head>
+
+<body>
+  <div class="container">
+    <h1 class="text-white text-center p-5 mb-6">Editar Relación Bodega-Producto</h1>
+    <form action="/bodega_producto/actualizar/<%= bodegaProducto.idProductoBodega %>" method="POST">
+      <select name="idBodega" required>
+        <% bodegas.forEach(bodega=> { %>
+          <option value="<%= bodega.idBodega %>" <%=bodega.idBodega===bodegaProducto.idBodega ? 'selected' : '' %>>
+            <%= bodega.nombre %>
+          </option>
+          <% }) %>
+      </select>
+      <select name="idProducto" required>
+        <% productos.forEach(producto=> { %>
+          <option value="<%= producto.idProducto %>" <%=producto.idProducto===bodegaProducto.idProducto ? 'selected'
+            : '' %>>
+            <%= producto.nombreProducto %>
+          </option>
+          <% }) %>
+      </select>
+      <input type="number" name="cantidad" value="<%= bodegaProducto.cantidad %>" required>
+      <button type="submit" class="btn btn-primary mt-2">Actualizar Relación</button>
+    </form>
+  </div>
+</body>
+
+</html>

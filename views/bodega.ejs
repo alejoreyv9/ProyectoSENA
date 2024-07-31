@@ -7,7 +7,7 @@
   <link rel="icon" href="resources/img/LogoMaicarSinFondoBLANCO.ico" type="image/x-icon" />
   <link rel="stylesheet" href="resources/css/Bodega/bootstrap.min.css" />
   <link rel="stylesheet" href="resources/css/Bodega/bodega.css" />
-  <title>IconoBODEGA</title>
+  <title>Gestión de Bodega y Productos</title>
 </head>
 
 <body>
@@ -21,138 +21,82 @@
       </div>
 
       <hr class="linea-tareas" />
-      <div class="table-responsive">
-        <!-- Agregamos la clase table-responsive para hacer la tabla responsive -->
-        <table class="table table-striped">
-          <thead>
-            <tr>
-              <th scope="col">Acción</th>
-              <th scope="col">Codigo</th>
-              <th scope="col">Tipo</th>
-              <th scope="col">Nombre</th>
-              <th scope="col">Fecha</th>
-              <th scope="col">Cantidad</th>
-              <th scope="col">Pedido</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Detalle</td>
-              <td>T_01</td>
-              <td>Lona</td>
-              <td>Lona inflable</td>
-              <td>10/06/2024</td>
-              <td>4</td>
-              <td>Solicitud</td>
-            </tr>
-            <tr>
-              <td>Detalle</td>
-              <td>T_01</td>
-              <td>Lona</td>
-              <td>Lona inflable</td>
-              <td>10/06/2024</td>
-              <td>4</td>
-              <td>Solicitud</td>
-            </tr>
-            <tr>
-              <td>Detalle</td>
-              <td>T_01</td>
-              <td>Lona</td>
-              <td>Lona inflable</td>
-              <td>10/06/2024</td>
-              <td>4</td>
-              <td>Solicitud</td>
-            </tr>
-            <tr>
-              <td>Detalle</td>
-              <td>T_01</td>
-              <td>Lona</td>
-              <td>Lona inflable</td>
-              <td>10/06/2024</td>
-              <td>4</td>
-              <td>Solicitud</td>
-            </tr>
-            <tr>
-              <td>Detalle</td>
-              <td>T_01</td>
-              <td>Lona</td>
-              <td>Lona inflable</td>
-              <td>10/06/2024</td>
-              <td>4</td>
-              <td>Solicitud</td>
-            </tr>
-            <tr>
-              <td>Detalle</td>
-              <td>T_01</td>
-              <td>Lona</td>
-              <td>Lona inflable</td>
-              <td>10/06/2024</td>
-              <td>4</td>
-              <td>Solicitud</td>
-            </tr>
-            <tr>
-              <td>Detalle</td>
-              <td>T_01</td>
-              <td>Lona</td>
-              <td>Lona inflable</td>
-              <td>10/06/2024</td>
-              <td>4</td>
-              <td>Solicitud</td>
-            </tr>
-            <tr>
-              <td>Detalle</td>
-              <td>T_01</td>
-              <td>Lona</td>
-              <td>Lona inflable</td>
-              <td>10/06/2024</td>
-              <td>4</td>
-              <td>Solicitud</td>
-            </tr>
-            <tr>
-              <td>Detalle</td>
-              <td>T_01</td>
-              <td>Lona</td>
-              <td>Lona inflable</td>
-              <td>10/06/2024</td>
-              <td>4</td>
-              <td>Solicitud</td>
-            </tr>
-            <tr>
-              <td>Detalle</td>
-              <td>T_01</td>
-              <td>Lona</td>
-              <td>Lona inflable</td>
-              <td>10/06/2024</td>
-              <td>4</td>
-              <td>Solicitud</td>
-            </tr>
-            <tr>
-              <td>Detalle</td>
-              <td>T_01</td>
-              <td>Lona</td>
-              <td>Lona inflable</td>
-              <td>10/06/2024</td>
-              <td>4</td>
-              <td>Solicitud</td>
-            </tr>
-            <tr>
-              <td>Detalle</td>
-              <td>T_01</td>
-              <td>Lona</td>
-              <td>Lona inflable</td>
-              <td>10/06/2024</td>
-              <td>4</td>
-              <td>Solicitud</td>
-            </tr>
-          </tbody>
-        </table>
+
+      <div class=" position-relative">
+        <h1 class="mb-0 mt-4">Ingresar Bodegas:</h1>
       </div>
+
+      <hr class="linea-tareas" />
+
+      <form action="/bodegas/crear" method="POST">
+        <input type="text" name="nombre" placeholder="Nombre de Bodega" required>
+        <input type="number" name="codigo" placeholder="Código" required>
+        <input type="text" name="accion" placeholder="Acción" required>
+        <input type="text" name="tipo" placeholder="Tipo" required>
+        <input type="date" name="fecha" required>
+        <input type="number" name="cantidad" placeholder="Cantidad" required>
+        <input type="text" name="pedidos" placeholder="Pedidos" required>
+        <button type="submit" class="btn btn-primary mt-2">Crear Bodega</button>
+      </form>
+
+      <hr class="linea-tareas" />
+
+      <div class=" position-relative">
+        <h1 class="mb-0 mt-4">Ingresar Productos:</h1>
+      </div>
+
+      <hr class="linea-tareas" />
+
+      <form action="/productos/crear" method="POST">
+        <input type="text" name="nombreProducto" placeholder="Nombre de Producto" required>
+        <input type="number" name="cantidadPorProducto" placeholder="Cantidad por Producto" required>
+        <input type="number" name="precioUnidad" placeholder="Precio por Unidad" step="0.01" required>
+        <input type="number" name="unidadExistencia" placeholder="Unidad en Existencia" required>
+        <input type="number" name="unidadPedido" placeholder="Unidad en Pedido" required>
+        <button type="submit" class="btn btn-primary mt-2">Crear Producto</button>
+      </form>
+
+      <hr class="linea-tareas" />
+
+      <!-- Sección de Relación Bodega-Producto -->
+      <h2>Relación Bodega - Producto</h2>
+      <% if (typeof bodega_producto !=='undefined' && bodega_producto.length> 0) { %>
+        <ul>
+          <% bodega_producto.forEach(bp=> { %>
+            <li>Bodega ID: <%= bp.idBodega %>, Producto ID: <%= bp.idProducto %>, Cantidad: <%= bp.cantidad %>
+            </li>
+            <% }); %>
+        </ul>
+        <% } else { %>
+          <p>No hay relaciones bodega-producto para mostrar.</p>
+          <% } %>
+
+            <form action="/bodega_producto/create" method="POST">
+              <select name="idBodega" required>
+                <% bodegas.forEach(bodega=> { %>
+                  <option value="<%= bodega.idBodega %>">
+                    <%= bodega.nombre %>
+                  </option>
+                  <% }); %>
+              </select>
+              <select name="idProducto" required>
+                <% productos.forEach(producto=> { %>
+                  <option value="<%= producto.idProducto %>">
+                    <%= producto.nombreProducto %>
+                  </option>
+                  <% }); %>
+              </select>
+              <input type="number" name="cantidad" placeholder="Cantidad" required>
+              <button type="submit" class="btn btn-primary mt-2">Relacionar Bodega y Producto</button>
+            </form>
+
+            <hr class="linea-tareas" />
     </div>
   </div>
 
   <script src="resources/js/redirectTo.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-  <% if(typeof alert !="undefined" ) { %>
+  <% if (typeof alert !=='undefined' ) { %>
     <script>
       Swal.fire({
         title: '<%= alertTitle %>',
@@ -165,7 +109,6 @@
       });
     </script>
     <% } %>
-
 </body>
 
 </html>

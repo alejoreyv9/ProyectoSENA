@@ -42,6 +42,11 @@ app.use("/dashboard", require("./routers/dashboardRouter"));
 app.use("/calidad", require("./routers/calidadRouter"));
 app.use("/reportes", require("./routers/reporteRouter"));
 
+// Integracion de informacion de bodega
+app.use("/bodegas", require("./routers/bodegaRouter"));
+app.use("/productos", require("./routers/productoRouter"));
+app.use("/bodega_producto", require("./routers/bodegaProductoRouter"));
+
 // Manejador de solicitud para el formulario de registro
 app.post("/registro", async (req, res) => {
   const {
@@ -160,9 +165,8 @@ app.get("/tareas", (req, res) => {
   res.render("tareas");
 });
 
-app.get("/bodega", (req, res) => {
-  res.render("bodega");
-});
+const bodegaProductoController = require("./controllers/bodegaProductoController");
+app.get("/bodega", bodegaProductoController.getAllBodegaProductos);
 
 app.get("/calidad", (req, res) => {
   res.render("calidad");
@@ -186,6 +190,50 @@ app.get("/editCalidad", (req, res) => {
 app.get("/editReportes", (req, res) => {
   res.render("editReportes");
 });
+
+app.get("/editBodega", (req, res) => {
+  res.render("editBodega");
+});
+app.get("/editProducto", (req, res) => {
+  res.render("editProducto");
+});
+app.get("/editBodegaProducto", (req, res) => {
+  res.render("editBodegaProducto");
+});
+
+// Informacion de Bodega COMO TAL.
+
+app.get("/bodegas", (req, res) => {
+  res.render("bodegas");
+});
+
+app.get("/productos", (req, res) => {
+  res.render("productos");
+});
+
+app.get("/bodega_producto", (req, res) => {
+  res.render("bodega_producto");
+});
+
+// Mirar errores
+
+// Manejo de rutas no encontradas
+app.use((req, res, next) => {
+  res.status(404).send("Lo siento, no pudimos encontrar esa página.");
+});
+
+// Manejo de errores
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).send("Algo salió mal!");
+});
+
+app.use((req, res, next) => {
+  console.log(`${new Date().toISOString()} - ${req.method} ${req.url}`);
+  next();
+});
+
+// Debuggear
 
 // Iniciar el servidor
 app.listen(3000, () => {

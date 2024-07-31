@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+ <meta charset="UTF-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+ <link rel="stylesheet" href="/resources/css/Bodega/bootstrap.min.css" />
+ <link rel="stylesheet" href="/resources/css/Bodega/bodega.css" />
+ <title>Editar Producto</title>
+</head>
+
+<body>
+ <div class="container h-75">
+  <h1 class="text-white text-center p-5 mb-6">Editar Producto</h1>
+  <form action="/productos/actualizar/<%= producto.idProducto %>" method="POST">
+   <input type="text" name="nombreProducto" value="<%= producto.nombreProducto %>" required>
+   <input type="number" name="cantidadPorProducto" value="<%= producto.cantidadPorProducto %>" required>
+   <input type="number" name="precioUnidad" value="<%= producto.precioUnidad %>" step="0.01" required>
+   <input type="number" name="unidadExistencia" value="<%= producto.unidadExistencia %>" required>
+   <input type="number" name="unidadPedido" value="<%= producto.unidadPedido %>" required>
+   <button type="submit" class="btn btn-primary mt-2">Actualizar Producto</button>
+  </form>
+ </div>
+</body>
+
+</html>

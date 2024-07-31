@@ -1,4 +1,5 @@
 // controllers/tareasController.js
+const moment = require("moment");
 const connection = require("../database/db");
 
 exports.getAllTareas = (req, res) => {
@@ -7,6 +8,9 @@ exports.getAllTareas = (req, res) => {
       console.error("Error al obtener tareas:", error);
       res.status(500).send("Error interno del servidor");
     } else {
+      results.forEach((tareas) => {
+        tareas.fecha = moment(tareas.fecha).format("DD/MM/YYYY");
+      });
       res.render("tareas", { results });
     }
   });
@@ -111,7 +115,7 @@ exports.deleteTarea = (req, res) => {
         console.error("Error al eliminar tarea:", error);
         res.status(500).send("Error interno del servidor");
       } else {
-        res.redirect("/tareas");
+        res.redirect("/dashboard");
       }
     }
   );
