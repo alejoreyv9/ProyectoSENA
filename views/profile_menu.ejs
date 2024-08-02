@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Menú Desplegable de Perfil</title>
+ <style>
+  /* Estilos básicos para el avatar y el menú */
+  .profile-dropdown {
+   position: relative;
+   display: inline-block;
+  }
+
+  .profile-dropdown-content {
+   display: none;
+   position: absolute;
+   right: 0;
+   background-color: #f9f9f9;
+   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+   z-index: 1;
+  }
+
+  .profile-dropdown-content a {
+   color: black;
+   padding: 12px 16px;
+   text-decoration: none;
+   display: block;
+  }
+
+  .profile-dropdown-content a:hover {
+   background-color: #f1f1f1
+  }
+
+  .profile-dropdown:hover .profile-dropdown-content {
+   display: block;
+  }
+
+  .profile-avatar {
+   cursor: pointer;
+  }
+ </style>
+</head>
+
+<body>
+ <div class="profile-dropdown">
+  <img src="avatar.png" alt="Avatar" class="profile-avatar" width="50" height="50">
+  <div class="profile-dropdown-content">
+   <a href="#profile">Perfil</a>
+   <a href="#settings">Configuración</a>
+   <a href="#logout">Cerrar sesión</a>
+  </div>
+ </div>
+</body>
+
+</html>

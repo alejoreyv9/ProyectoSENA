@@ -180,6 +180,10 @@ app.get("/dashboard", (req, res) => {
   res.render("dashboard");
 });
 
+app.get("/profile_menu", (req, res) => {
+  res.render("profile_menu");
+});
+
 app.get("/editTareas", (req, res) => {
   res.render("editTareas");
 });

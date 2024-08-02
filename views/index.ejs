@@ -11,25 +11,12 @@
 </head>
 
 <body>
-  <div class="contenedor">
-    <h1>Página de Inicio</h1>
-    <% if (login) { %>
-      <h1>Usuario conectado: <strong>
-          <%= name %>
-        </strong></h1>
-      <a href="logout" class="a-logout">Cerrar Sesión</a>
-      <% } else { %>
-        <h1><strong>
-            <%= name %>
-          </strong></h1>
-        <a href="login" class="a-login">Ir a Login</a>
-        <% } %>
-  </div>
+
 
   <div class="container-fluid">
     <div class="container-xxl">
       <img src="resources/img/LogoMaicarSinFondoBLANCO.png" alt="LogoMaicar" class="mt-5" width="165" height="146" />
-      <a href="#"><img src="resources/img/IconoUsuario.png" alt="IcoUsuario" class="float-end mt-4" /></a>
+      <!-- <a href="#"><img src="resources/img/IconoUsuario.png" alt="IcoUsuario" class="float-end mt-4" /></a> -->
       <a href="/dashboard"><img src="resources/img/IconoDashboard.png" alt="IcoDashboard" class="float-end mt-4" /></a>
     </div>
 
@@ -66,6 +53,23 @@
         </a>
       </div>
     </div>
+
+    <hr class="custom-hr mt-5" />
+
+    <div class="contenedor mt-3 ">
+      <% if (login) { %>
+        <h1 class="text-white">Usuario conectado: <strong><u>
+              <%= name %>
+            </u></strong></h1>
+        <a href="logout" class="a-logout">Cerrar Sesión</a>
+        <% } else { %>
+          <h1><strong>
+              <%= name %>
+            </strong></h1>
+          <a href="login" class="a-login">Iniciar Sesión</a>
+          <% } %>
+    </div>
+
   </div>
 
   <script src="components/bootstrap/bootstrap.bundle.min.js"></script>

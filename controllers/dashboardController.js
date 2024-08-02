@@ -1,7 +1,8 @@
 const connection = require("../database/db");
+const { format } = require("date-fns");
+const { es } = require("date-fns/locale");
 
 exports.getDashboard = async (req, res) => {
-  // Remove 'mode_no' from here
   const itemsPerPage = 10;
   const page = parseInt(req.query.page) || 1;
   const offset = (page - 1) * itemsPerPage;
@@ -19,6 +20,23 @@ exports.getDashboard = async (req, res) => {
       offset,
       itemsPerPage
     );
+
+    // Formatear fechas
+    const formatDate = (date) =>
+      format(new Date(date), "dd/MM/yyyy", { locale: es });
+
+    tareas.forEach((tarea) => {
+      tarea.fecha_Inicial = formatDate(tarea.fecha_Inicial);
+      tarea.fecha_Final = formatDate(tarea.fecha_Final);
+    });
+
+    reportes.forEach((reporte) => {
+      reporte.fecha = formatDate(reporte.fecha);
+    });
+
+    bodegas.forEach((bodega) => {
+      bodega.fecha = formatDate(bodega.fecha);
+    });
 
     res.render("dashboard", {
       tareas,
@@ -42,6 +60,8 @@ exports.getDashboard = async (req, res) => {
     res.status(500).send("Error al obtener los datos del dashboard");
   }
 };
+
+// Funciones para obtener los datos de la base de datos
 function getTareas(offset, limit) {
   return new Promise((resolve, reject) => {
     connection.query(
@@ -116,6 +136,7 @@ function getReportes(offset, limit) {
     );
   });
 }
+
 function getBodegas(offset, limit) {
   return new Promise((resolve, reject) => {
     connection.query(
@@ -140,6 +161,7 @@ function getBodegas(offset, limit) {
     );
   });
 }
+
 function getProductos(offset, limit) {
   return new Promise((resolve, reject) => {
     connection.query(
@@ -164,6 +186,7 @@ function getProductos(offset, limit) {
     );
   });
 }
+
 function getBodega_Productos(offset, limit) {
   return new Promise((resolve, reject) => {
     connection.query(
