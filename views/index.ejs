@@ -56,10 +56,13 @@
 
     <hr class="custom-hr mt-5" />
 
-    <div class="contenedor mt-3 ">
+    <div class="contenedor mt-3">
       <% if (login) { %>
         <h1 class="text-white">Usuario conectado: <strong><u>
               <%= name %>
+            </u></strong></h1>
+        <h1 class="text-white">Área del Usuario: <strong><u>
+              <%= area %>
             </u></strong></h1>
         <a href="logout" class="a-logout">Cerrar Sesión</a>
         <% } else { %>
@@ -70,6 +73,7 @@
           <% } %>
     </div>
 
+    <hr class="custom-hr mt-5" />
   </div>
 
   <script src="components/bootstrap/bootstrap.bundle.min.js"></script>

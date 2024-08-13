@@ -61,7 +61,7 @@ DROP TABLE reporteCalidad;
 
 CREATE TABLE reporteCalidad (
 	idCalidad INT AUTO_INCREMENT PRIMARY KEY,
-    hecho_por VARCHAR(255),
+    hecho_por VARCHAR(255),usuarios
     comentario TEXT,
     nivelCalidad VARCHAR(225)
 );

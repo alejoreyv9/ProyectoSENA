@@ -12,7 +12,7 @@
 </head>
 
 <body>
-  <% if (tarea) { %> <!-- Asegúrate de que el objeto tarea esté definido -->
+  <% if (tarea) { %>
     <div class="container">
       <h1 class="mt-4 mb-4">Editar Tarea</h1>
       <form action="/tareas/edit/<%= tarea.idTarea %>" method="POST">
@@ -50,7 +50,7 @@
       </form>
     </div>
     <% } else { %>
-      <p>Tarea no encontrada.</p> <!-- Manejo de caso donde no se encuentra la tarea -->
+      <p>Tarea no encontrada.</p>
       <% } %>
 
         <script src="/resources/js/redirectTo.js"></script>

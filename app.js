@@ -112,6 +112,7 @@ app.post("/auth", async (req, res) => {
         } else {
           req.session.loggedin = true;
           req.session.name = results[0].nombreApellido;
+          req.session.area = results[0].departamento;
           res.render("login", {
             alert: true,
             alertTitle: "Conexión Exitosa",
@@ -143,6 +144,7 @@ app.get("/index", (req, res) => {
     res.render("index", {
       login: true,
       name: req.session.name,
+      area: req.session.area,
     });
   } else {
     res.render("index", {
