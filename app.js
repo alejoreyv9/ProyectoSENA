@@ -36,6 +36,29 @@ app.get("/registro", (req, res) => {
   res.render("registro");
 });
 
+//=================================================================
+//=================================================================
+//===================RUTAS PARA LAS API============================
+
+const tareasAPIRouter = require("./routers/tareasAPIRouter");
+const calidadAPIRouter = require("./routers/calidadAPIRouter");
+const reportesAPIRouter = require("./routers/reportesAPIRouter");
+//========GESTION DE BODEGA=========
+const bodegaAPIRouter = require("./routers/bodegaAPIRouter");
+const productoApiRouter = require("./routers/productoAPIRouter");
+const bodegaProductoRouter = require("./routers/bodegaProductoAPIRouter");
+
+app.use("/api/tareas", tareasAPIRouter);
+app.use("/api/calidad", calidadAPIRouter);
+app.use("/api/reportes", reportesAPIRouter);
+//========GESTION DE BODEGA===========
+app.use("/api/bodegas", bodegaAPIRouter);
+app.use("/api/productos", productoApiRouter);
+app.use("/api/bodega_productos", bodegaProductoRouter);
+
+//=================================================================
+//=================================================================
+
 // =========== CONEXIONES DE LOS ROUTERS ===============
 app.use("/tareas", require("./routers/tareasRouter"));
 app.use("/dashboard", require("./routers/dashboardRouter"));
@@ -73,15 +96,135 @@ app.post("/registro", async (req, res) => {
     (error, results) => {
       if (error) {
         console.log(error);
+        res.status(500).json({
+          success: false,
+          message: "Error en el registro del usuario",
+        });
       } else {
-        res.render("registro", {
-          alert: true,
-          alertTitle: "Registrado",
-          alertMessage: "¡Registro Exitoso!",
-          alertIcon: "success",
-          showConfirmButton: false,
-          timer: 1500,
-          ruta: "",
+        res.status(201).json({
+          success: true,
+          message: "¡Registro Exitoso!",
+        });
+      }
+    }
+  );
+});
+
+// JSON PARA LA GESTION Traida de la informacion
+// =========================================================
+
+app.post("/registro", async (req, res) => {
+  const {
+    nombreApellido,
+    cedula,
+    roles,
+    departamento,
+    correo,
+    contraseña,
+    nombreUsuario,
+  } = req.body;
+
+  try {
+    let passwordHash = await bcryptjs.hash(contraseña, 8);
+    connection.query(
+      "INSERT INTO usuarios SET ?",
+      {
+        nombreApellido,
+        cedula,
+        roles,
+        departamento,
+        correo,
+        contraseña: passwordHash,
+        nombreUsuario,
+      },
+      (error, results) => {
+        if (error) {
+          console.log(error);
+          res.status(500).json({
+            success: false,
+            message: "Error en el registro del usuario",
+          });
+        } else {
+          res.status(201).json({
+            success: true,
+            message: "¡Registro Exitoso!",
+          });
+        }
+      }
+    );
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({
+      success: false,
+      message: "Error en el registro del usuario",
+    });
+  }
+});
+
+// Para obtenerlos por el ID
+app.get("/usuario/:idUsuario", (req, res) => {
+  const { idUsuario } = req.params;
+  console.log(`Recibido idUsuario: ${idUsuario}`); // Para depuración
+  connection.query(
+    "SELECT * FROM usuarios WHERE idUsuario = ?",
+    [idUsuario],
+    (error, results) => {
+      if (error) {
+        console.error("Error en la consulta:", error); // Para depuración
+        res.status(500).json({
+          success: false,
+          message: "Error al recuperar los datos del usuario",
+        });
+      } else if (results.length === 0) {
+        console.log("Usuario no encontrado"); // Para depuración
+        res.status(404).json({
+          success: false,
+          message: "Usuario no encontrado",
+        });
+      } else {
+        console.log("Usuario encontrado:", results[0]); // Para depuración
+        res.status(200).json({
+          success: true,
+          data: results[0],
+        });
+      }
+    }
+  );
+});
+
+// EDITAR USUARIO COMO TAL.
+app.put("/usuario/:idUsuario", (req, res) => {
+  const { idUsuario } = req.params;
+  const { nombreApellido, roles, departamento, correo, nombreUsuario } =
+    req.body;
+
+  // Asegúrate de validar los datos si es necesario
+  if (!nombreApellido || !roles || !departamento || !correo || !nombreUsuario) {
+    return res.status(400).json({
+      success: false,
+      message: "Todos los campos son necesarios",
+    });
+  }
+
+  connection.query(
+    "UPDATE usuarios SET nombreApellido = ?, roles = ?, departamento = ?, correo = ?, nombreUsuario = ? WHERE idUsuario = ?",
+    [nombreApellido, roles, departamento, correo, nombreUsuario, idUsuario],
+    (error, results) => {
+      if (error) {
+        console.log(error);
+        return res.status(500).json({
+          success: false,
+          message: "Error al actualizar el usuario",
+        });
+      } else if (results.affectedRows === 0) {
+        return res.status(404).json({
+          success: false,
+          message: "Usuario no encontrado",
+        });
+      } else {
+        return res.status(200).json({
+          success: true,
+          message: "Usuario actualizado exitosamente",
         });
       }
     }
