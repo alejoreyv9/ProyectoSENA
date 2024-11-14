@@ -71,48 +71,7 @@ app.use("/productos", require("./routers/productoRouter"));
 app.use("/bodega_producto", require("./routers/bodegaProductoRouter"));
 
 // Manejador de solicitud para el formulario de registro
-app.post("/registro", async (req, res) => {
-  const {
-    nombreApellido,
-    cedula,
-    roles,
-    departamento,
-    correo,
-    contraseña,
-    nombreUsuario,
-  } = req.body;
-  let passwordHash = await bcryptjs.hash(contraseña, 8);
-  connection.query(
-    "INSERT INTO usuarios SET ?",
-    {
-      nombreApellido,
-      cedula,
-      roles,
-      departamento,
-      correo,
-      contraseña: passwordHash,
-      nombreUsuario,
-    },
-    (error, results) => {
-      if (error) {
-        console.log(error);
-        res.status(500).json({
-          success: false,
-          message: "Error en el registro del usuario",
-        });
-      } else {
-        res.status(201).json({
-          success: true,
-          message: "¡Registro Exitoso!",
-        });
-      }
-    }
-  );
-});
-
-// JSON PARA LA GESTION Traida de la informacion
-// =========================================================
-
+// Manejador de solicitud para el formulario de registro
 app.post("/registro", async (req, res) => {
   const {
     nombreApellido,
@@ -140,26 +99,95 @@ app.post("/registro", async (req, res) => {
       (error, results) => {
         if (error) {
           console.log(error);
-          res.status(500).json({
-            success: false,
-            message: "Error en el registro del usuario",
+          // Si hay un error, muestra un mensaje en la misma página de registro
+          res.render("registro", {
+            alert: true,
+            alertTitle: "Error",
+            alertMessage: "Error en el registro del usuario",
+            alertIcon: "error",
+            showConfirmButton: true,
+            timer: false,
+            ruta: "registro",
           });
         } else {
-          res.status(201).json({
-            success: true,
-            message: "¡Registro Exitoso!",
+          // Si el registro es exitoso, redirige a la página de login o muestra un mensaje de éxito
+          res.render("registro", {
+            alert: true,
+            alertTitle: "¡Registro Exitoso!",
+            alertMessage:
+              "Usuario registrado correctamente. Ahora puedes iniciar sesión.",
+            alertIcon: "success",
+            showConfirmButton: false,
+            timer: 1500,
+            ruta: "login", // Aquí puedes redirigir al login o a otra página
           });
         }
       }
     );
   } catch (error) {
     console.log(error);
-    res.status(500).json({
-      success: false,
-      message: "Error en el registro del usuario",
+    res.render("registro", {
+      alert: true,
+      alertTitle: "Error",
+      alertMessage: "Error en el registro del usuario",
+      alertIcon: "error",
+      showConfirmButton: true,
+      timer: false,
+      ruta: "registro",
     });
   }
 });
+
+// JSON PARA LA GESTION Traida de la informacion
+// =========================================================
+
+// app.post("/registro", async (req, res) => {
+//   const {
+//     nombreApellido,
+//     cedula,
+//     roles,
+//     departamento,
+//     correo,
+//     contraseña,
+//     nombreUsuario,
+//   } = req.body;
+
+//   try {
+//     let passwordHash = await bcryptjs.hash(contraseña, 8);
+//     connection.query(
+//       "INSERT INTO usuarios SET ?",
+//       {
+//         nombreApellido,
+//         cedula,
+//         roles,
+//         departamento,
+//         correo,
+//         contraseña: passwordHash,
+//         nombreUsuario,
+//       },
+//       (error, results) => {
+//         if (error) {
+//           console.log(error);
+//           res.status(500).json({
+//             success: false,
+//             message: "Error en el registro del usuario",
+//           });
+//         } else {
+//           res.status(201).json({
+//             success: true,
+//             message: "¡Registro Exitoso!",
+//           });
+//         }
+//       }
+//     );
+//   } catch (error) {
+//     console.log(error);
+//     res.status(500).json({
+//       success: false,
+//       message: "Error en el registro del usuario",
+//     });
+//   }
+// });
 
 // Para obtenerlos por el ID
 app.get("/usuario/:idUsuario", (req, res) => {
